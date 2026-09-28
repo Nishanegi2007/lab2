@@ -1,12 +1,3 @@
-const logger =(req,res,next)=>{
-    const time =new Date().toLocaleString();
-
-    console.log(`[${time}] ${req.method} ${req.originalUrl}`);
-
-    next();
-
-}
-
 const errorHandler = (err, req, res, next) => {
     console.error(err.stack);
 
@@ -18,5 +9,4 @@ const errorHandler = (err, req, res, next) => {
     });
 };
 
-module.exports = logger;
-
+module.exports = errorHandler;
