@@ -7,27 +7,14 @@ const errorHandler = require("./middleware/errorHandler");
 const studentRoutes = require("./routes/studentRoutes");
 
 
-// ==========================================
-// PORT
-// ==========================================
-
 const PORT = 3000;
 
-
-// ==========================================
-// GLOBAL MIDDLEWARE
-// ==========================================
-
-// Parse JSON request bodies
 app.use(express.json());
 
-// Custom logger
+
 app.use(logger);
 
 
-// ==========================================
-// HOME ROUTE
-// ==========================================
 
 app.get("/", (req, res) => {
 
@@ -39,16 +26,9 @@ app.get("/", (req, res) => {
 });
 
 
-// ==========================================
-// STUDENT ROUTES
-// ==========================================
-
 app.use("/students", studentRoutes);
 
 
-// ==========================================
-// UNSUPPORTED ROUTES
-// ==========================================
 
 app.use((req, res, next) => {
 
@@ -63,16 +43,10 @@ app.use((req, res, next) => {
 });
 
 
-// ==========================================
-// CENTRAL ERROR HANDLER
-// ==========================================
 
 app.use(errorHandler);
 
 
-// ==========================================
-// START SERVER
-// ==========================================
 
 app.listen(PORT, () => {
 
